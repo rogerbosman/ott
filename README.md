@@ -131,7 +131,7 @@ manager's opam 1 version, and will need to install opam 2 following the
 instructions on the opam website.
 
 Then `opam install ott` will install the latest Ott version.  The
-Emacs mode will be in `` $(opam config var
+Emacs mode will be in `` $(opam var
 prefix)/share/emacs/site-lisp ``, and documentation in `` $(opam
 config var prefix)/doc/ott ``.
 
@@ -207,10 +207,10 @@ Ott Emacs directory.
 (require 'ott-mode)
 ```
 
-For installations using OPAM on \*nix systems, it is sufficient to use the following code, which will call `opam config var prefix` at load-time.
+For installations using OPAM on \*nix systems, it is sufficient to use the following code, which will call `opam var prefix` at load-time.
 
 ```ELisp
-(setq opam-share (substring (shell-command-to-string "opam config var share") 0 -1))
+(setq opam-share (substring (shell-command-to-string "opam var share") 0 -1))
 (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 (require 'ott-mode)
 ```
